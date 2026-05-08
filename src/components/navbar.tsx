@@ -23,8 +23,8 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 
-
 import { toast } from "sonner"
+import { Link } from "react-router-dom"
 
 export default function Navbar() {
    return(
@@ -38,26 +38,26 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="hover:text-foreground transition-colors"
             >
               Features
-            </a>
+            </Link>
 
-            <a
-              href="/#/pricing"
+            <Link
+              to="/pricing"
               className="hover:text-foreground transition-colors"
             >
               Pricing
-            </a>
+            </Link>
 
-            <a
-              href="/#/about"
+            <Link
+              to="/about"
               className="hover:text-foreground transition-colors"
             >
               About
-            </a>
+            </Link>
           </nav>
 
           {/* Desktop Actions */}
