@@ -25,117 +25,124 @@ import {
 
 import { toast } from "sonner"
 import { Link } from "react-router-dom"
+import { useState } from "react"
 
 export default function Navbar() {
-   return(
-       <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-xl">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          {/* Logo */}
-          <div className="flex items-center gap-2 font-bold text-lg">
-            <BrainCircuit className="h-5 w-5 text-violet-500" />
-            NeuroAI
-          </div>
+  const [open, setOpen] = useState(false);
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-            <Link
-              to="/"
-              className="hover:text-foreground transition-colors"
-            >
-              Features
-            </Link>
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-            <Link
-              to="/pricing"
-              className="hover:text-foreground transition-colors"
-            >
-              Pricing
-            </Link>
-
-            <Link
-              to="/about"
-              className="hover:text-foreground transition-colors"
-            >
-              About
-            </Link>
-          </nav>
-
-          {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
-
-            {/* Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline">
-                  Resources
-                  <ChevronDown className="ml-2 h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem>
-                  Documentation
-                </DropdownMenuItem>
-
-                <DropdownMenuItem>
-                  API Access
-                </DropdownMenuItem>
-
-                <DropdownMenuItem>
-                  Community
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <Button
-              className="bg-violet-600 hover:bg-violet-700"
-              onClick={() =>
-                toast("Welcome to NeuroAI", {
-                  description:
-                    "Your AI workspace is ready.",
-                })
-              }
-            >
-              Get Started
-            </Button>
-          </div>
-
-          {/* Mobile Menu */}
-          <div className="flex md:hidden items-center gap-2">
-            <ThemeToggle />
-
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button size="icon" variant="outline">
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </SheetTrigger>
-
-              <SheetContent side="left">
-                <div className="mt-10 flex flex-col gap-4">
-                  <Button variant="ghost">
-                    Features
-                  </Button>
-
-                  <Button variant="ghost">
-                    Pricing
-                  </Button>
-
-                  <Button variant="ghost">
-                    About
-                  </Button>
-
-                  <Button
-                    className="mt-4 bg-violet-600 hover:bg-violet-700"
-                  >
-                    Launch App
-                  </Button>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
+  return(
+      <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-xl">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+        {/* Logo */}
+        <div className="flex items-center gap-2 font-bold text-lg">
+          <BrainCircuit className="h-5 w-5 text-violet-500" />
+          NeuroAI
         </div>
-      </header>
-   )
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
+          <Link
+            to="/"
+            className="hover:text-foreground transition-colors"
+          >
+            Features
+          </Link>
+
+          <Link
+            to="/pricing"
+            className="hover:text-foreground transition-colors"
+          >
+            Pricing
+          </Link>
+
+          <Link
+            to="/about"
+            className="hover:text-foreground transition-colors"
+          >
+            About
+          </Link>
+        </nav>
+
+        {/* Desktop Actions */}
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
+
+          {/* Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline">
+                Resources
+                <ChevronDown className="ml-2 h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem>
+                Documentation
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                API Access
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                Community
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <Button
+            className="bg-violet-600 hover:bg-violet-700"
+            onClick={() =>
+              toast("Welcome to NeuroAI", {
+                description:
+                  "Your AI workspace is ready.",
+              })
+            }
+          >
+            Get Started
+          </Button>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className="flex md:hidden items-center gap-2">
+          <ThemeToggle />
+
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+              <Button size="icon" variant="outline">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+
+            <SheetContent side="left">
+              <div className="mt-10 flex flex-col gap-4">
+                <Button variant="ghost" onClick={handleClose}>
+                  <Link to="/">Features</Link>
+                </Button>
+
+                <Button variant="ghost" onClick={handleClose}>
+                  <Link to="/pricing">Pricing</Link>
+                </Button>
+
+                <Button variant="ghost" onClick={handleClose}>
+                  <Link to="/about">About</Link>
+                </Button>
+
+                <Button
+                  className="mt-4 bg-violet-600 hover:bg-violet-700"
+                >
+                  Launch App
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+    </header>
+  )
 }
