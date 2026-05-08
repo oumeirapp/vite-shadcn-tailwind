@@ -23,13 +23,8 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
+
+import ShowcaseSection from "@/components/showcase-section"
 
 
 const showcase = [
@@ -143,57 +138,8 @@ export default function HomePage() {
         </Tabs>
       </section>
 
-      {/* Carousel */}
-      <section className="container mx-auto px-4  py-12 md:py-20">
-        <div className="mb-12 text-center">
-          <h2 className="text-4xl font-bold">
-            Built for modern teams
-          </h2>
+      <ShowcaseSection showcase={showcase} />
 
-          <p className="mt-4 text-muted-foreground">
-            Everything you need to scale with AI.
-          </p>
-        </div>
-
-        <Carousel className="mx-auto max-w-5xl">
-          <CarouselContent>
-            {showcase.map((item, index) => (
-              <CarouselItem
-                key={index}
-                className="md:basis-1/2 lg:basis-1/3"
-              >
-                <Card className="h-full border bg-card">
-                  <CardContent className="flex h-64 flex-col justify-between p-6">
-                    <div>
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10">
-                        <Sparkles className="h-6 w-6 text-violet-500" />
-                      </div>
-
-                      <h3 className="text-xl font-semibold">
-                        {item.title}
-                      </h3>
-
-                      <p className="mt-3 text-muted-foreground">
-                        {item.desc}
-                      </p>
-                    </div>
-
-                    <Button
-                      variant="ghost"
-                      className="justify-start px-0"
-                    >
-                      Learn more →
-                    </Button>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </section>
     </main>
   )
 }
