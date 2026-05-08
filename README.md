@@ -14,28 +14,6 @@ This template includes:
 
 ## Getting Started
 
-### STEP 1 Option A (Recommended) ⭐
-Use GitHub's template feature to create your project:
-1. Click the "Use this template" button above
-2. Select "Create a new repository"
-3. Choose your repository name and settings
-4. Click "Create repository from template"
-
-### STEP 1 Option B (Alternative)
-If you prefer to start manually:
-```sh
-# Clone the template repository
-git clone https://github.com/bobby-io/react-vite-shadcn-template
-cd react-vite-shadcn-template
-
-# Remove the existing git history
-rm -rf .git
-
-# Initialize as a fresh git repository
-git init
-```
-
-### STEP 2 - Next Steps (Required)
 1. Install dependencies:
 ```sh
 npm install
