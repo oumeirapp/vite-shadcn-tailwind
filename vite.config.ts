@@ -5,7 +5,7 @@ import path from "path";
 export default defineConfig({
   plugins: [react()],
 
-  base: "./",
+  base: "/vite-shadcn-tailwind/",
 
   resolve: {
     alias: {
