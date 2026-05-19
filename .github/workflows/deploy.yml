@@ -33,6 +33,9 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Debug env vars
+        run: |
+          echo "REST URL exists: ${{ secrets.SFMC_REST_URL != '' }}"
       - name: Upload assets to SFMC
         env:
           SFMC_CLIENT_ID: ${{ secrets.SFMC_CLIENT_ID }}
