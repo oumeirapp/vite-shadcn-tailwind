@@ -86,57 +86,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Tabs */}
-      <section className="container mx-auto px-4 py-8 md:py-16">
-        <Tabs
-          defaultValue="chat"
-          className="mx-auto max-w-4xl"
-        >
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="chat">
-              AI Chat
-            </TabsTrigger>
-
-            <TabsTrigger value="generate">
-              Generate
-            </TabsTrigger>
-
-            <TabsTrigger value="automate">
-              Automate
-            </TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="chat">
-            <FeatureCard
-              icon={
-                <BrainCircuit className="h-10 w-10 text-violet-500" />
-              }
-              title="Intelligent Conversations"
-              desc="Get instant answers, coding help, and creative support from advanced AI."
-            />
-          </TabsContent>
-
-          <TabsContent value="generate">
-            <FeatureCard
-              icon={
-                <Sparkles className="h-10 w-10 text-cyan-500" />
-              }
-              title="Generate Content"
-              desc="Create blogs, emails, social posts, and product descriptions instantly."
-            />
-          </TabsContent>
-
-          <TabsContent value="automate">
-            <FeatureCard
-              icon={
-                <Wand2 className="h-10 w-10 text-pink-500" />
-              }
-              title="Workflow Automation"
-              desc="Automate repetitive tasks and connect your tools using AI."
-            />
-          </TabsContent>
-        </Tabs>
-      </section>
+      <Testimonial />
 
       <ShowcaseSection showcase={showcase} />
 
@@ -169,5 +119,66 @@ function FeatureCard({
         </div>
       </CardContent>
     </Card>
+  )
+}
+
+function Testimonial(){
+  return(
+    <section className="container mx-auto px-4 py-4 md:py-8">
+      <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-6 items-stretch">
+        {/* Left Layout */}
+        <div className="hidden lg:block relative h-[520px] w-full max-w-[430px] mx-auto">
+
+          {/* Top Right Card */}
+          <div className="absolute top-0 right-0 h-[250px] w-[250px] sm:w-[280px] rounded-[40px] flex items-end justify-between border-4 border-background shadow-2xl">
+            <img
+              src="https://www.cisco.com/content/dam/cisco-cdc/site/images/heroes/learn/topics/artificial-intelligence/artificial-intel-800x450.png"
+              alt="testimonial"
+              className="h-full w-full object-cover rounded-[40px]"
+            />
+          </div>
+
+          {/* Bottom Left Card */}
+          <div className="absolute bottom-0 left-0 h-[250px] w-[250px] sm:w-[280px] rounded-[40px] flex items-end justify-between border-4 border-background shadow-2xl">
+            <img
+              src="https://www.shutterstock.com/image-vector/ai-generate-logo-artificial-intelligence-600nw-2519534733.jpg"
+              alt="testimonial"
+              className="h-full w-full object-cover rounded-[40px]"
+            />
+          </div>
+
+        </div>
+
+        {/* Right Content */}
+        <div className="rounded-[40px] bg-muted p-8 md:p-12 flex flex-col justify-between min-h-[460px]">
+          <div>
+            <span className="text-6xl leading-none text-[#f7b19d]">
+              “
+            </span>
+
+            <p className="mt-6 text-2xl md:text-4xl font-medium leading-snug tracking-tight max-w-4xl">
+              Agent 4 unlocks true collaboration and real-time learning —
+              now our teams can design and build with our closest partners
+              live, turn instant feedback into measurable wins, and deliver
+              outcomes that delight customers and partners.
+            </p>
+          </div>
+
+          <div className="mt-10">
+            <h3 className="text-2xl font-semibold">
+              Doug Rodermund
+            </h3>
+
+            <p className="mt-1 text-lg text-muted-foreground">
+              Principal Program Manager
+            </p>
+
+            <p className="mt-2 text-muted-foreground">
+              Zillow
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
