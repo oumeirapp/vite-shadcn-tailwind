@@ -94,34 +94,6 @@ export default function HomePage() {
   )
 }
 
-function FeatureCard({
-  icon,
-  title,
-  desc,
-}: {
-  icon: React.ReactNode
-  title: string
-  desc: string
-}) {
-  return (
-    <Card className="mt-6">
-      <CardContent className="flex items-start gap-4 p-8">
-        {icon}
-
-        <div>
-          <h3 className="text-xl font-semibold">
-            {title}
-          </h3>
-
-          <p className="mt-2 text-muted-foreground">
-            {desc}
-          </p>
-        </div>
-      </CardContent>
-    </Card>
-  )
-}
-
 function Testimonial(){
   return(
     <section className="container mx-auto px-4 py-4 md:py-8">
